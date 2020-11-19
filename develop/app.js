@@ -68,7 +68,7 @@ function start() {
             {
                 type: 'input',
                 name: 'engname',
-                message: 'What is the engineer name?'
+                message: 'What is the engineers name?'
 
             },
             {
@@ -81,18 +81,27 @@ function start() {
                 type: 'input',
                 name: 'engemail',
                 message: 'What is the engineer email address?',
+                validate: (engemail)=>{ 
+                    var valid =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(engemail);
+                    if(valid){
+                        return true;
+                    }else{
+                        return 'Please enter an email address';
+                    }
+
+                }
 
             },
             {
                 type: 'input',
                 name: 'enggithub',
-                message: 'What is the engineer office number?',
+                message: 'What is the engineer GitHub username ?',
 
             }
 
         ]).then(userResponse => {
-            const manager = new Manager(userResponse.engname, userResponse.engid, userResponse.engemail, userResponse.enggithub);
-            teamMembers.push(manager);
+            const engineer = new Engineer(userResponse.engname, userResponse.engid, userResponse.engemail, userResponse.enggithub);
+            teamMembers.push(engineer);
             console.log(teamMembers);
             createUser();
         })
