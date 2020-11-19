@@ -4,6 +4,25 @@
 ![](https://github.com/nbmc1991/SoftwareTeamGenerator/blob/main/Screenshot%202020-11-19%20121739.png)
 ## Table of Contents:
 
+[Description](#description)
+
+
+[Installation](#installation)
+
+[Usage](#usage)
+
+
+[Testing](#testing)
+
+
+[License](#license)
+
+
+[Contributing](#contributing)
+
+
+[Questions](#questions)
+
 
 [Description](#description)
 
