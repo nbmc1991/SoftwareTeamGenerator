@@ -24,33 +24,33 @@
 [Questions](#questions)
 
 
-[Description](#description)
+## Description
 
 This is a *Softwar Engineering Team Generator* command line application. that will  prompt the user for information about the team manager and then information about the team members.
  The user can input any number of team members, and they may be a mix of engineers and interns.
 The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. This assignment must also pass all unit tests. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user.
 
-[Installation](#installation)
+## installation
 
 npm install
 
-[Usage](#usage)
+## Usage
 
 generating team member information
 
-[Testing](#testing)
+## Testing
 
 npm test
 
-[License](#license)
+## License
 
 none
 
-[Contributing](#contributing)
+## Contributing
 
 create pull request
 
-[Questions](#questions)
+## Questions
 
 
 
