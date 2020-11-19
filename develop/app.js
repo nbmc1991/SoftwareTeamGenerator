@@ -9,7 +9,173 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const teamMembers = [];
 
+function start() {
+
+    function createManager() {
+
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'managername',
+                message: 'What is the managers name?'
+
+            },
+            {
+                type: 'input',
+                name: 'managerid',
+                message: 'What is the managers ID?',
+
+            },
+            {
+                type: 'input',
+                name: 'manageremail',
+                message: 'What is the managers email address?',
+                validate: function (manageremail){
+                    var valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(manageremail)
+                    if(valid){
+                        return true;
+
+                    }else {
+                        return false;
+                    }
+
+
+                }
+
+            },
+            {
+                type: 'input',
+                name: 'managerofficenum',
+                message: 'What is the managers office number?',
+
+            }
+
+        ]).then(userResponse => {
+            const manager = new Manager(userResponse.managername, userResponse.managerid, userResponse.manageremail, userResponse.managerofficenum);
+            teamMembers.push(manager);
+            console.log(teamMembers);
+            createUser();
+        })
+
+        
+    }
+   
+
+    function createEngineer() {
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'engname',
+                message: 'What is the engineer name?'
+
+            },
+            {
+                type: 'input',
+                name: 'engid',
+                message: 'What is the engineer ID?',
+
+            },
+            {
+                type: 'input',
+                name: 'engemail',
+                message: 'What is the engineer email address?',
+
+            },
+            {
+                type: 'input',
+                name: 'enggithub',
+                message: 'What is the engineer office number?',
+
+            }
+
+        ]).then(userResponse => {
+            const manager = new Manager(userResponse.engname, userResponse.engid, userResponse.engemail, userResponse.enggithub);
+            teamMembers.push(manager);
+            console.log(teamMembers);
+            createUser();
+        })
+       
+
+    }
+
+    
+
+    function createIntern() {
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'internname',
+                message: 'What is the interns name?'
+
+            },
+            {
+                type: 'input',
+                name: 'internid',
+                message: 'What is the interns ID?',
+
+            },
+            {
+                type: 'input',
+                name: 'internemail',
+                message: 'What is the interns email address?',
+
+            },
+            {
+                type: 'input',
+                name: 'internschool',
+                message: 'What is the interns school?',
+
+            }
+
+        ]).then(userResponse => {
+            const intern = new Intern(userResponse.internname, userResponse.internid, userResponse.internemail, userResponse.internschool);
+            teamMembers.push(intern);
+            console.log(teamMembers);
+            createUser();
+        })
+
+        
+    }
+
+    function createUser() {
+        inquirer.prompt([
+            {
+                type: 'list',
+                name: 'typeofuser',
+                message: 'What type of user would you like to create?',
+                choices: ['Engineer', 'Intern', 'None']
+            }
+        ]).then(choice => {
+            switch (choice.typeofuser) {
+                case 'Engineer':
+                    createEngineer();
+
+                    break;
+                case 'Intern':
+                    createIntern();
+                    break;
+                default: teamBuilder()
+
+
+            }
+        })
+    }
+function teamBuilder (){
+    if(!fs.existsSync(OUTPUT_DIR)){
+        fs.mkdirSync( OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath,render(teamMembers),'utf-8');
+}
+
+
+
+
+
+    createManager();
+}
+start();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
