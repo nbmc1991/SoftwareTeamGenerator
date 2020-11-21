@@ -1,6 +1,6 @@
 # Team Generator
 
-
+![License](https://img.shields.io/badge/License-MIT license%202.0-blue.svg)
 ![](https://github.com/nbmc1991/SoftwareTeamGenerator/blob/main/Screenshot%202020-11-19%20121739.png)
 
 Please click on the image below to watch a demo on TEAM GENERATOR
