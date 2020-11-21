@@ -2,6 +2,9 @@
 
 
 ![](https://github.com/nbmc1991/SoftwareTeamGenerator/blob/main/Screenshot%202020-11-19%20121739.png)
+
+[![Click on the image below to watch a demo on TEAM GENERATOR](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/D1JLWYfvzro)
+
 ## Table of Contents:
 
 [Description](#description)
