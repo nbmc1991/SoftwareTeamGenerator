@@ -13,20 +13,48 @@ const teamMembers = [];
 
 function start() {
 
+
+    function createUser() {
+        inquirer.prompt([
+            {
+                type: 'list',
+                name: 'typeofuser',
+                message: 'What type of user would you like to create?',
+                choices: ['Manager','Engineer', 'Intern', 'None']
+            }
+        ]).then(choice => {
+            switch (choice.typeofuser) {
+                case 'Manager':
+                    createManager();
+                    break;
+
+                case 'Engineer':
+                    createEngineer();
+
+                    break;
+                case 'Intern':
+                    createIntern();
+                    break;
+                default: teamBuilder()
+
+
+            }
+        })
+    }
+
     function createManager() {
 
         inquirer.prompt([
             {
                 type: 'input',
                 name: 'managername',
-                message: 'What is the managers name?'
-
+                message: 'What is the managers name?',
+        
             },
             {
                 type: 'input',
                 name: 'managerid',
                 message: 'What is the managers ID?',
-
             },
             {
                 type: 'input',
@@ -38,10 +66,8 @@ function start() {
                         return true;
 
                     }else {
-                        return false;
+                        return "Please enter valid email input";
                     }
-
-
                 }
 
             },
@@ -49,13 +75,12 @@ function start() {
                 type: 'input',
                 name: 'managerofficenum',
                 message: 'What is the managers office number?',
-
             }
 
         ]).then(userResponse => {
             const manager = new Manager(userResponse.managername, userResponse.managerid, userResponse.manageremail, userResponse.managerofficenum);
             teamMembers.push(manager);
-            console.log(teamMembers);
+            // console.log(teamMembers);
             createUser();
         })
 
@@ -102,7 +127,7 @@ function start() {
         ]).then(userResponse => {
             const engineer = new Engineer(userResponse.engname, userResponse.engid, userResponse.engemail, userResponse.enggithub);
             teamMembers.push(engineer);
-            console.log(teamMembers);
+            // console.log(teamMembers);
             createUser();
         })
        
@@ -141,36 +166,14 @@ function start() {
         ]).then(userResponse => {
             const intern = new Intern(userResponse.internname, userResponse.internid, userResponse.internemail, userResponse.internschool);
             teamMembers.push(intern);
-            console.log(teamMembers);
+            // console.log(teamMembers);
             createUser();
         })
 
         
+        
     }
 
-    function createUser() {
-        inquirer.prompt([
-            {
-                type: 'list',
-                name: 'typeofuser',
-                message: 'What type of user would you like to create?',
-                choices: ['Engineer', 'Intern', 'None']
-            }
-        ]).then(choice => {
-            switch (choice.typeofuser) {
-                case 'Engineer':
-                    createEngineer();
-
-                    break;
-                case 'Intern':
-                    createIntern();
-                    break;
-                default: teamBuilder()
-
-
-            }
-        })
-    }
 function teamBuilder (){
     if(!fs.existsSync(OUTPUT_DIR)){
         fs.mkdirSync( OUTPUT_DIR)
@@ -182,7 +185,7 @@ function teamBuilder (){
 
 
 
-    createManager();
+    createUser();
 }
 start();
 
