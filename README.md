@@ -48,7 +48,7 @@ npm test
 
 ## License
 
-none
+MIT
 
 ## Contributing
 
