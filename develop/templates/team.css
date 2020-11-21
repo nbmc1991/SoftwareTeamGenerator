@@ -1,0 +1,23 @@
+h1{
+   color: white;
+   font-size: 4rem;
+   font-weight: 600;
+   text-transform: uppercase;
+   /* transform: skew(-30deg); */
+   /* margin-bottom: 5rem; */
+   letter-spacing: 0rem;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   text-shadow: 0.2rem 0.2rem 1rem rgb(132, 206, 235);
+    
+}
+
+.jumbotron{
+   background-color: rgb(20, 20, 20);
+
+}
+
+.card{
+   background-color: black;
+}
+   
+
