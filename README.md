@@ -3,7 +3,7 @@
 
 ![](https://github.com/nbmc1991/SoftwareTeamGenerator/blob/main/Screenshot%202020-11-19%20121739.png)
 
-[![Click on the image below to watch a demo on TEAM GENERATOR]][(https://github.com/nbmc1991/SoftwareTeamGenerator/blob/main/images/Screenshot%202020-11-21%20170907.png)](https://youtu.be/D1JLWYfvzro)
+[![Click on the image below to watch a demo on TEAM GENERATOR](https://github.com/nbmc1991/SoftwareTeamGenerator/blob/main/images/Screenshot%202020-11-21%20170907.png)](https://youtu.be/D1JLWYfvzro)
 
 ## Table of Contents:
 
